@@ -8,6 +8,19 @@
 </template>
 
 <script>
+  import Firebase from 'firebase'
+
+  let config = {
+    apiKey: "AIzaSyD5Jo1TpVr4MfE2rOMdteig9M85rahgmHQ",
+    authDomain: "todoapp-2f9c9.firebaseapp.com",
+    databaseURL: "https://todoapp-2f9c9.firebaseio.com",
+    projectId: "todoapp-2f9c9",
+    storageBucket: "todoapp-2f9c9.appspot.com",
+    messagingSenderId: "201137854947"
+  };
+
+  let app = Firebase.initializeApp(config);
+
   import TodoHeader from './components/TodoHeader.vue';
   import TodoInput from './components/TodoInput.vue';
   import TodoList from './components/TodoList.vue';
