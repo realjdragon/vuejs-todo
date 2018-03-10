@@ -18,7 +18,7 @@
       addTodo() {
         if (this.newTodoItem !== '') {
           var value = this.newTodoItem && this.newTodoItem.trim();
-          this.$emit('addTodo', value);
+          this.$store.commit('addOneItem', this.newTodoItem);
           this.clearInput();
         } 
       },
