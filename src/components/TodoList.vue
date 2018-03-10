@@ -1,10 +1,10 @@
 <template>
   <section>
     <transition-group name="list" tag="ul">
-      <li v-for="(todoItem, index) in this.$store.getters.getTodoItems" :key="todoItem" class="shadow">
+      <li v-for="(todoItem, index) in this.getTodoItems" :key="todoItem" class="shadow">
         <i class="checkBtn fa fa-check" aria-hidden="true"></i>  
         {{ todoItem }}
-        <span class="removeBtn" type="button" @click="removeTodo(todoItem, index)">
+        <span class="removeBtn" type="button" @click="removeTodo({name: todoItem, index: index})">
           <i class="fa fa-trash-o" aria-hidden="true"></i>
         </span>
       </li>
@@ -13,11 +13,16 @@
 </template>
 
 <script>
+  import { mapGetters, mapMutations } from 'vuex'
+
   export default {
     methods: {
-      removeTodo(todoItem, index) {
-        this.$store.commit('removeOneItem', {name: todoItem, index: index});
-      }
+      ...mapMutations({
+        'removeTodo': 'removeOneItem'
+      })
+    },
+    computed: {
+      ...mapGetters(['getTodoItems'])
     }
   }
 </script>
