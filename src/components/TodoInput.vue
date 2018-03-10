@@ -45,7 +45,7 @@
   }
   .addContainer {
     float: right;
-    background: linear-gradient(to right, #6478FB, #8763FB);
+    background: linear-gradient(to right, rgb(251, 185, 100), rgb(163, 12, 156));
     display: inline-block;
     width: 3rem;
     border-radius: 0 5px 5px 0;
